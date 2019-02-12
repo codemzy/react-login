@@ -3,14 +3,18 @@ import React from 'react';
 class LoginForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {value: ''};
+    this.state = {
+      email: '',
+      password: ''
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
-    this.setState({value: event.target.value});
+    const name = event.target.name;
+    this.setState({[name]: event.target.value});
   }
 
   handleSubmit(event) {
@@ -21,11 +25,14 @@ class LoginForm extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <label>
-          Name:
-          <input type="text" value={this.state.value} onChange={this.handleChange} />
-        </label>
-        <input type="submit" value="Submit" />
+        <div className="form-group">
+          <label>Email</label>
+          <input type="email" name="email" className="form-control" placeholder="you@youremail.com" value={this.state.email} onChange={this.handleChange} />
+        </div>
+        <div className="form-group">
+          <label>Password</label>
+          <input type="password" name="password" className="form-control" value={this.state.password} onChange={this.handleChange} />
+        </div>
       </form>
     );
   }
