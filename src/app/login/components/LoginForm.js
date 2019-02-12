@@ -30,11 +30,12 @@ class LoginForm extends React.Component {
           <label>Email</label>
           <input type="email" name="email" className="form-control" placeholder="you@youremail.com" value={this.state.email} onChange={this.handleChange} />
         </div>
-        <div className="form-group">
+        <div className="form-group mb-4">
           <label>Password</label>
           <input type="password" name="password" className="form-control" value={this.state.password} onChange={this.handleChange} />
         </div>
         <button type="submit" className="btn btn-primary">Log In</button>
+        <button type="button" className="btn btn-link">Forgot password?</button>
       </form>
     );
   }
