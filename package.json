@@ -1,0 +1,19 @@
+{
+  "name": "react-login",
+  "version": "0.0.1",
+  "description": "A simple ReactJs app with log in.",
+  "scripts": {
+    "start": "parcel src/app/index.html --out-dir dist/app",
+    "build": "parcel build src/app/index.html --out-dir dist/app"
+  },
+  "dependencies": {
+    "parcel-bundler": "^1.11.0"
+  },
+  "engines": {
+    "node": "8.x"
+  },
+  "repository": {
+    "url": "https://glitch.com/edit/#!/hello-express"
+  },
+  "license": "MIT"
+}

@@ -14,4 +14,3 @@ Tools
 
 - ReactJS (obvz)
 - Parcel (simple builder - no config)
-
