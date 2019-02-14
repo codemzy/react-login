@@ -1,17 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+// routes
+import routes from './config/router';
+
 //components
-import Main from './login/components/Main';
-import LoginForm from './login/components/LoginForm';
+import Login from './login/components/Login';
 
 
-function App(props) {
-  return (
-    <Main title="Log In" footer={<small><a href="#" className="text-white"><u>Don't have an account?</u></a></small>}>
-      <LoginForm />
-    </Main>
-  );
-}
-
-ReactDOM.render(<App />, document.getElementById('app'));
+// render app
+ReactDOM.render(routes, document.getElementById('app'));
