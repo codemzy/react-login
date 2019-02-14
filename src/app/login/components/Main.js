@@ -12,6 +12,7 @@ function Main(props) {
                 {props.children}
               </div>
             </div>
+            {props.footer}
           </div>
         </div>
       </div>
