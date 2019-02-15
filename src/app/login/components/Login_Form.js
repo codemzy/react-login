@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
+import { appPath } from '../../config/settings';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -33,7 +35,7 @@ class LoginForm extends React.Component {
         <div className="form-group mb-4">
           <label>Password</label>
           <input type="password" name="password" className="form-control" value={this.state.password} onChange={this.handleChange} />
-          <small id="emailHelp" className="form-text text-muted"><a href="#">Forgot your password?</a></small>
+          <small id="emailHelp" className="form-text text-muted"><Link to={appPath + "/login/forgotten"}>Forgot your password?</Link></small>
         </div>
         <button type="submit" className="btn btn-primary btn-block">Log In</button>
       </form>
