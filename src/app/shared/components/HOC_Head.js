@@ -3,7 +3,7 @@ import { appName } from '../../config/settings';
 
 export default function(ComposedComponent, title) {
   
-  function Head(props) {
+  function HeadHOC(props) {
     
      useEffect(() => {
        document.title = `${title} | ${appName}`;
@@ -12,6 +12,6 @@ export default function(ComposedComponent, title) {
     return <ComposedComponent {...props} />;
   }
 
-  return Head;
+  return HeadHOC;
   
 }
