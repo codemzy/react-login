@@ -1,8 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { appPath } from './settings';
 
-// base path if app is served in url directory
-export const basePath = "";
+// hoc
+import Head from '../shared/components/HOC_Head';
 
 // components
 import Login from '../login/components/Login';
@@ -12,9 +13,9 @@ import Register from '../login/components/Register';
 const routes = (
   <Router>
     <div>
-      <Route exact path={basePath + "/"} component={Login} />
-      <Route path={basePath + "/login"} component={Login} />
-      <Route path={basePath + "/register"} component={Register} />
+      <Route exact path={appPath + "/"} component={Head(Login, "Log in")} />
+      <Route path={appPath + "/login"} component={Head(Login, "Log in")} />
+      <Route path={appPath + "/register"} component={Head(Register, "Register")} />
     </div>
   </Router>
 );
