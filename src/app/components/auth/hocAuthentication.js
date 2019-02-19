@@ -1,6 +1,6 @@
 import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
 import { checkAuth } from '../../api/user';
+import { UserContext } from '../../config/context';
 
 const withAuthentication = (ComposedComponent) => { 
 
@@ -25,7 +25,11 @@ const withAuthentication = (ComposedComponent) => {
        if(this.state.loading) {
            return <div>Loading...</div>;
        } else {
-         return <ComposedComponent user={this.state.user} {...this.props} />;
+         return (
+           <UserContext.Provider value={this.state.user}>
+             <ComposedComponent {...this.props} />
+           </UserContext.Provider>
+         );
        }
     }
 

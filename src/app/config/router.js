@@ -5,8 +5,6 @@ import { appPath } from './settings';
 // hoc
 import HeadHOC from '../shared/components/HOC_Head';
 import withAuthorisation from '../components/auth/hocAuthorisation';
-//components
-import withAuthentication from '../components/auth/hocAuthentication';
 
 // components
 import Login from '../login/components/Login';
