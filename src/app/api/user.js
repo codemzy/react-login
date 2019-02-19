@@ -6,6 +6,6 @@
 
 export const checkAuth = new Promise(function(resolve, reject) {
   setTimeout(function() {
-    resolve(false);
-  }, 1000);
+    resolve(true);
+  }, 5000);
 });
