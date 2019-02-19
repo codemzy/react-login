@@ -5,6 +5,8 @@ import { appPath } from './settings';
 // hoc
 import HeadHOC from '../shared/components/HOC_Head';
 import withAuthorisation from '../components/auth/hocAuthorisation';
+//components
+import withAuthentication from '../components/auth/hocAuthentication';
 
 // components
 import Login from '../login/components/Login';
@@ -17,8 +19,8 @@ const routes = (
   <Router>
     <div>
       <Route exact path={appPath + "/"} component={withAuthorisation(Login, true)} />
-      <Route exact path={appPath + "/login"} component={HeadHOC(Login, "Log in")} />
-      <Route path={appPath + "/login/forgotten"} component={HeadHOC(Forgot, "Forgotten Password")} />
+      <Route exact path={appPath + "/login"} component={withAuthorisation(Login, false)} />
+      <Route path={appPath + "/login/forgotten"} component={withAuthorisation(Forgot, false)} />
       <Route path={appPath + "/register"} component={HeadHOC(Register, "Register")} />
     </div>
   </Router>

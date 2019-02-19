@@ -1,20 +1,19 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
-// hoc
-import withAuthentication from './hocAuthentication';
-
 // export
 const withAuthorisation = (ComposedComponent, authRequired, roleRequired) => { 
   function Authorisation(props) {
-    if (authRequired && !props.user) { 
+    if (authRequired && !props.user) { // must be logged in to view
       return <Redirect to="/login" />;
-    } else {
+    } else if (!authRequired && props.user) { // must be logged out to view
+      return <Redirect to="/" />;
+    } else { // authorisation granted
       return <ComposedComponent {...props} />;
     }
   }
   
-  return withAuthentication(Authorisation);
+  return Authorisation;
 }
 
 export default withAuthorisation;

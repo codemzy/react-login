@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-// routes
-import routes from './config/router';
+import routes from './config/router'; // app routes
+import withAuthentication from './components/auth/hocAuthentication'; // hoc user authentication
 
-//components
-import Login from './login/components/Login';
+// App
+const App = withAuthentication(function App() {
+ return routes; 
+});
 
-
-// render app
-ReactDOM.render(routes, document.getElementById('app'));
+// render App
+ReactDOM.render(<App />, document.getElementById('app'));
