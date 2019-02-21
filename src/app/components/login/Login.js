@@ -2,6 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import { appPath } from '../../config/settings';
 
+// hoc
+import withHead from '../hocHead';
+
 //components
 import Main from './Main';
 import LoginForm from './Login_Form';
@@ -14,5 +17,5 @@ function Login(props) {
   );
 }
 
-export default Login;
+export default withHead(Login, "Log In");
 

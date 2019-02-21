@@ -1,8 +1,5 @@
 import React from 'react';
 
-// hoc
-import withHead from '../hocHead';
-
 class RegisterForm extends React.Component {
   constructor(props) {
     super(props);
@@ -45,4 +42,4 @@ class RegisterForm extends React.Component {
   }
 }
 
-export default withHead(RegisterForm);
+export default RegisterForm;
