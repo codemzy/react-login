@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Redirect, Route, Link } from "react-router-dom
 import { appPath } from './settings';
 
 // hoc
-import HeadHOC from '../shared/components/HOC_Head';
+import HeadHOC from '../components/hocHead';
 import withAuthorisation from '../components/auth/hocAuthorisation';
 
 // components

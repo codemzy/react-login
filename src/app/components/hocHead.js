@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react';
-import { appName } from '../../config/settings';
+import { appName } from '../config/settings';
 
-export default function(ComposedComponent, title) {
-  
-  function HeadHOC(props) {
+export default function withHead(ComposedComponent, title) {
+  return function Head(props) {
     
      useEffect(() => {
        document.title = `${title} | ${appName}`;
@@ -11,7 +10,4 @@ export default function(ComposedComponent, title) {
     
     return <ComposedComponent {...props} />;
   }
-
-  return HeadHOC;
-  
 }
