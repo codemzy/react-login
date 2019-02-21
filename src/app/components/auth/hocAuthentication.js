@@ -1,6 +1,11 @@
 import React from 'react';
 import { checkAuth } from '../../api/user';
+
+// context for user state
 import { UserContext } from '../../config/context';
+
+// components
+import Main from '../login/Main';
 
 // checks with api if user is logged in and gets user data
 const withAuthentication = (ComposedComponent) => { 
@@ -23,7 +28,7 @@ const withAuthentication = (ComposedComponent) => {
     
     render() { 
        if(this.state.loading) {
-           return <div>Loading...</div>;
+           return <Main loading={true} />;
        } else {
          return (
            <UserContext.Provider value={this.state.user}>
