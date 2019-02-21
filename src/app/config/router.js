@@ -19,7 +19,7 @@ const routes = (
       <Route exact path={appPath + "/"} component={withAuthorisation(Login, true)} />
       <Route exact path={appPath + "/login"} component={withAuthorisation(Login, false)} />
       <Route path={appPath + "/login/forgotten"} component={withAuthorisation(Forgot, false)} />
-      <Route path={appPath + "/register"} component={HeadHOC(Register, "Register")} />
+      <Route path={appPath + "/register"} component={Register} />
     </div>
   </Router>
 );

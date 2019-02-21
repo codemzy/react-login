@@ -9,7 +9,7 @@ import RegisterForm from './Register_Form';
 function Register(props) {
   return (
     <Main title="Register" footer={<small><p className="text-white">Already have an account? <Link to={appPath + "/login"} className="text-white"><u>Log In</u></Link></p></small>}>
-      <RegisterForm />
+      <RegisterForm title="testing title"/>
     </Main>
   );
 }
