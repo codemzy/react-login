@@ -2,8 +2,8 @@ import React from 'react';
 import { checkAuth } from '../../api/user';
 import { UserContext } from '../../config/context';
 
+// checks with api if user is logged in and gets user data
 const withAuthentication = (ComposedComponent) => { 
-
   return class Authentication extends React.Component {
     constructor(props) {
       super(props);

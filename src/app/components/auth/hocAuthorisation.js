@@ -1,10 +1,10 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
-// context
+// context for user state
 import { UserContext } from '../../config/context';
 
-// hoc
+// checks if user is authorised to view the component
 const withAuthorisation = (ComposedComponent, authRequired, roleRequired) => { 
   function Authorisation(props) {
     return (

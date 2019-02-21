@@ -7,9 +7,9 @@ import HeadHOC from '../shared/components/HOC_Head';
 import withAuthorisation from '../components/auth/hocAuthorisation';
 
 // components
-import Login from '../login/components/Login';
-import Forgot from '../login/components/Forgot';
-import Register from '../login/components/Register';
+import Login from '../components/login/Login';
+import Forgot from '../components/login/Forgot';
+import Register from '../components/login/Register';
 
 
 //router
