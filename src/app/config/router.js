@@ -10,13 +10,14 @@ import withAuthorisation from '../components/auth/hocAuthorisation';
 import Login from '../components/login/Login';
 import Forgot from '../components/login/Forgot';
 import Register from '../components/login/Register';
+import Dashboard from '../components/account/Dashboard';
 
 
 //router
 const routes = (
   <Router>
     <div>
-      <Route exact path={appPath + "/"} component={withAuthorisation(Login, true)} />
+      <Route exact path={appPath + "/"} component={withAuthorisation(Dashboard, true)} />
       <Route exact path={appPath + "/login"} component={withAuthorisation(Login, false)} />
       <Route path={appPath + "/login/forgotten"} component={withAuthorisation(Forgot, false)} />
       <Route path={appPath + "/register"} component={Register} />
