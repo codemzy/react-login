@@ -19,8 +19,8 @@ const withAuthentication = (ComposedComponent) => {
     }
     
     componentDidMount() {
-      checkAuth.then(() => {
-        this.setState({user: false, loading: false});
+      checkAuth.then((result) => {
+        this.setState({user: result, loading: false});
       }).catch(() => {
         this.setState({loading: false});
       })
