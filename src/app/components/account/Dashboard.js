@@ -9,7 +9,9 @@ import Main from '../Main';
 function Dashboard(props) {
   return (
     <Main>
-      <h1>Dashboard</h1>
+      <div className="text-center">
+        <h1 className="display-1">Dashboard</h1>
+      </div>
     </Main>
   );
 }
