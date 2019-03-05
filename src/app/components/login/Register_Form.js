@@ -1,7 +1,7 @@
 import React from 'react';
 
 // validate
-import { checkEmail } from '../../utils/validate';
+import { checkEmail, checkPassword, checkMatch } from '../../utils/validate';
 
 class RegisterForm extends React.Component {
   constructor(props) {
@@ -24,7 +24,9 @@ class RegisterForm extends React.Component {
     event.preventDefault();
     // validate data
     const ERRORS = { ...this.state.errors,
-                    email: checkEmail(this.state.email)
+                    email: checkEmail(this.state.email),
+                    password: checkPassword(this.state.password),
+                    confirm: checkMatch(this.state.confirm, this.state.password, "Your password confirmation does not match")
                    };
     this.setState({
         errors: ERRORS
@@ -43,11 +45,13 @@ class RegisterForm extends React.Component {
         </div>
         <div className="form-group">
           <label>Password</label>
-          <input type="password" name="password" className="form-control" value={this.state.password} onChange={this._handleChange.bind(this)} />
+          <input type="password" name="password" className={"form-control" + (this.state.errors.password ? " is-invalid" : "")} value={this.state.password} onChange={this._handleChange.bind(this)} />
+          { this.state.errors.password ? <small className="invalid-feedback">{this.state.errors.password}</small> : false }
         </div>
         <div className="form-group mb-4">
           <label>Confirm Password</label>
-          <input type="password" name="confirm" className="form-control" value={this.state.confirm} onChange={this._handleChange.bind(this)} />
+          <input type="password" name="confirm" className={"form-control" + (this.state.errors.confirm ? " is-invalid" : "")} value={this.state.confirm} onChange={this._handleChange.bind(this)} />
+          { this.state.errors.confirm ? <small className="invalid-feedback">{this.state.errors.confirm}</small> : false }
         </div>
         <button type="submit" className="btn btn-primary btn-block">Create Account</button>
       </form>

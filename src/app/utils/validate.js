@@ -13,6 +13,15 @@ export const checkEmail = function(email) {
   }
 };
 
+// check password
+export const checkPassword = function(password) {
+  if (!password || password.length < 8) {
+      return "Enter a password of at least 8 characters";
+  } else {
+      return false;
+  }
+};
+
 // check name
 export const checkName = function(name) {
   if (!name || name.length < 3 ) {
@@ -21,6 +30,15 @@ export const checkName = function(name) {
       return "Please enter your full name, using only letters and spaces";
   } else if (validator.matches(name, /^[ ]+$/gi)) { // dont allow just spaces
       return "Name needs to include letters";
+  } else {
+      return false;
+  }
+};
+
+// check match
+export const checkMatch = function(text, match, error) {
+  if (!text || !match || text !== match) {
+      return error;
   } else {
       return false;
   }
