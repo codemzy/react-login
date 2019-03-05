@@ -21,7 +21,7 @@ const routes = (
     <div>
       <Route exact path={appPath + "/"} component={withAuthorisation(Dashboard, true)} />
       <Route exact path={appPath + "/account"} component={withAuthorisation(Account, true)} />
-      <Route path="/page/:num" render={({ match }) => <Page title={"Page " + match.params.num} />}/>
+      <Route path="/page/:num" render={({ props, match }) => withAuthorisation(Page, true)({...props, title: "Page " + match.params.num})}/>
       <Route exact path={appPath + "/login"} component={withAuthorisation(Login, false)} />
       <Route path={appPath + "/login/forgotten"} component={withAuthorisation(Forgot, false)} />
       <Route path={appPath + "/register"} component={Register} />
