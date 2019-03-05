@@ -1,7 +1,7 @@
 import React from 'react';
 
 // validate
-import { checkEmail, checkPassword, checkMatch } from '../../utils/validate';
+import { checkEmail, checkPassword, checkMatch, checkNoMatch } from '../../utils/validate';
 
 class RegisterForm extends React.Component {
   constructor(props) {
@@ -25,7 +25,7 @@ class RegisterForm extends React.Component {
     // validate data
     const ERRORS = { ...this.state.errors,
                     email: checkEmail(this.state.email),
-                    password: checkPassword(this.state.password),
+                    password: checkPassword(this.state.password) || checkNoMatch(this.state.password, this.state.email, "Your password can't be your email address"),
                     confirm: checkMatch(this.state.confirm, this.state.password, "Your password confirmation does not match")
                    };
     this.setState({

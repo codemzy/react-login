@@ -43,3 +43,12 @@ export const checkMatch = function(text, match, error) {
       return false;
   }
 };
+
+// check not a match
+export const checkNoMatch = function(text, noMatch, error) {
+  if (text === noMatch) {
+      return error;
+  } else {
+      return false;
+  }
+};
