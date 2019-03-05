@@ -19,8 +19,9 @@ class AccountDetails extends React.Component {
   }
 
   _handleSubmit(event) {
-    alert('A form was submitted: ' + this.state.email);
     event.preventDefault();
+    // removed 'disabled' from fieldset below to build out form when wired up to backend
+    // e.g. change name, change password features
   }
 
   render() {
