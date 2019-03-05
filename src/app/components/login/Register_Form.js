@@ -1,12 +1,17 @@
 import React from 'react';
 
+// validate
+import { checkEmail } from '../../utils/validate';
+
 class RegisterForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       email: '',
       password: '',
-      confirm: ''
+      confirm: '',
+      loading: false,
+      errors: {}
     };
   }
 
@@ -16,8 +21,15 @@ class RegisterForm extends React.Component {
   }
 
   _handleSubmit(event) {
-    alert('A form was submitted: ' + this.state.email);
     event.preventDefault();
+    // validate data
+    const ERRORS = { ...this.state.errors,
+                    email: checkEmail(this.state.email)
+                   };
+    this.setState({
+        errors: ERRORS
+    });
+    return ERRORS;
   }
 
   render() {
@@ -26,7 +38,8 @@ class RegisterForm extends React.Component {
         <h6 className="text-muted">Sign up with your email address and password.</h6>
         <div className="form-group mt-4">
           <label>Email</label>
-          <input type="email" name="email" className="form-control" placeholder="you@youremail.com" value={this.state.email} onChange={this._handleChange.bind(this)} />
+          <input type="email" name="email" className={"form-control" + (this.state.errors.email ? " is-invalid" : "")} placeholder="you@youremail.com" value={this.state.email} onChange={this._handleChange.bind(this)} />
+          { this.state.errors.email ? <small className="invalid-feedback">{this.state.errors.email}</small> : false }
         </div>
         <div className="form-group">
           <label>Password</label>

@@ -3,6 +3,6 @@
 export const checkAuth = new Promise(function(resolve, reject) {
   let dummyUser = { firstName: "Fake", lastName: "User", email: "fake.user@email.com" };
   setTimeout(function() {
-    resolve(dummyUser); // return dummyUser for logged in, or false for not logged in
+    resolve(false); // return dummyUser for logged in, or false for not logged in
   }, 5000);
 });
