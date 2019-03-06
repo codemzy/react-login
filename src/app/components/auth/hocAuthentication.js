@@ -15,7 +15,7 @@ const withAuthentication = (ComposedComponent) => {
       this.state = {
         loading: true,
         user: false,
-        updateUser: (user) => { this.setState({ user: user }) }
+        updateUser: (user) => { this.setState({ user: {...this.state.user, ...user} }) }
       };
     }
     

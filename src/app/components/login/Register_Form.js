@@ -40,8 +40,8 @@ class RegisterForm extends React.Component {
     // if no errors then handle the form
     if (!ERRORS.email && !ERRORS.password && !ERRORS.confirm) { // and no errors
       this.setState({loading: true});
-      userRegister.then((result) => {
-        this.setState({user: result, loading: false});
+      userRegister(this.state.email, this.state.password).then((result) => {
+        this.context.updateUser(result);
       }).catch(() => {
         this.setState({loading: false});
       });
@@ -72,5 +72,7 @@ class RegisterForm extends React.Component {
     );
   }
 }
+
+RegisterForm.contextType = UserContext;
 
 export default RegisterForm;
