@@ -28,3 +28,12 @@ export const userLogin = function(email, password) {
     }, 2000);
   });
 };
+
+// fake log out a user
+export const userLogout = function() {
+  return new Promise(function(resolve, reject) {
+    setTimeout(function() {
+      resolve();
+    }, 2000);
+  });
+};
