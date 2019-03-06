@@ -19,3 +19,12 @@ export const userRegister = function(email, password) {
     }, 2000);
   });
 };
+
+// fake log in a user
+export const userLogin = function(email, password) {
+  return new Promise(function(resolve, reject) {
+    setTimeout(function() {
+      resolve({...dummyUser, email: email }); // return a user for successful log in
+    }, 2000);
+  });
+};

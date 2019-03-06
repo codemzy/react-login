@@ -39,7 +39,7 @@ class RegisterForm extends React.Component {
           errors: ERRORS
       });
       // if no errors then handle the form
-      if (!ERRORS.email && !ERRORS.password && !ERRORS.confirm) { // and no errors
+      if (!ERRORS.email && !ERRORS.password && !ERRORS.confirm) {
         this.setState({loading: true});
         userRegister(this.state.email, this.state.password).then((result) => {
           this.context.updateUser(result);
