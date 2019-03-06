@@ -6,6 +6,9 @@ import { UserContext } from '../../config/context';
 // api calls
 import { userLogout } from '../../api/user';
 
+// hoc
+import withHead from '../hocHead';
+
 //components
 import Main from '../login/Main';
 
@@ -30,4 +33,4 @@ class Logout extends React.Component {
 
 Logout.contextType = UserContext;
 
-export default Logout;
+export default withHead(Logout, "Logging out...");
