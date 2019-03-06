@@ -8,7 +8,7 @@ let dummyUser = { firstName: "Fake", lastName: "User", email: "fake.user@email.c
 export const checkAuth = new Promise(function(resolve, reject) {
   setTimeout(function() {
     resolve(false); // return dummyUser for logged in, or false for not logged in
-  }, 5000);
+  }, 2000);
 });
 
 // fake register a user
@@ -31,6 +31,15 @@ export const userLogin = function(email, password) {
 
 // fake log out a user
 export const userLogout = function() {
+  return new Promise(function(resolve, reject) {
+    setTimeout(function() {
+      resolve();
+    }, 2000);
+  });
+};
+
+// fake forgot password 
+export const forgotPassword = function(email) {
   return new Promise(function(resolve, reject) {
     setTimeout(function() {
       resolve();

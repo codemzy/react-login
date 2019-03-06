@@ -1,5 +1,8 @@
 import React from 'react';
 
+// api calls
+import { forgotPassword } from '../../api/user';
+
 // validate
 import { checkEmail } from '../../utils/validate';
 
@@ -9,7 +12,8 @@ class ForgotForm extends React.Component {
     this.state = {
       email: '',
       loading: false,
-      errors: {}
+      errors: {},
+      alert: false
     };
   }
 
@@ -23,11 +27,21 @@ class ForgotForm extends React.Component {
     // validate data
     const ERRORS = { email: checkEmail(this.state.email) };
     this.setState({ errors: ERRORS });
+    // if no errors then handle the form
+    if (!ERRORS.email) {
+      this.setState({loading: true});
+      forgotPassword(this.state.email).then((result) => {
+        this.setState({loading: false, alert: true});
+      }).catch(() => {
+        this.setState({loading: false, alert: true});
+      });
+    }
   }
 
   render() {
     return (
       <form onSubmit={this._handleSubmit.bind(this)}>
+        { this.state.alert ? <div className="alert alert-success mb-4" role="alert">We have emailed instructions to your email address, please check your email.</div> : false }
         <h6 className="text-muted">Please submit your email address. You'll get sent a link to reset your password.</h6>
         <div className="form-group my-4">
           <label>Email</label>
