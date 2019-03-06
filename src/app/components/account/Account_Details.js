@@ -29,15 +29,15 @@ class AccountDetails extends React.Component {
       <form onSubmit={this._handleSubmit.bind(this)} className="row pt-4">
         <div className="form-group col-md-6">
           <label>First Name</label>
-          <input type="text" name="firstName" className="form-control" placeholder={this.context.firstName} value={this.state.firstName} onChange={this._handleChange.bind(this)} />
+          <input type="text" name="firstName" className="form-control" placeholder={this.context.user.firstName} value={this.state.firstName} onChange={this._handleChange.bind(this)} />
         </div>
         <div className="form-group col-md-6">
           <label>Last Name</label>
-          <input type="text" name="lastName" className="form-control" placeholder={this.context.lastName} value={this.state.lastName} onChange={this._handleChange.bind(this)} />
+          <input type="text" name="lastName" className="form-control" placeholder={this.context.user.lastName} value={this.state.lastName} onChange={this._handleChange.bind(this)} />
         </div>
         <div className="form-group col-md-6">
           <label>Email</label>
-          <input type="email" name="email" className="form-control" placeholder={this.context.email} value={this.state.email} onChange={this._handleChange.bind(this)} />
+          <input type="email" name="email" className="form-control" placeholder={this.context.user.email} value={this.state.email} onChange={this._handleChange.bind(this)} />
         </div>
       </form>
     );

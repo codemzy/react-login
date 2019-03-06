@@ -14,7 +14,8 @@ const withAuthentication = (ComposedComponent) => {
       super(props);
       this.state = {
         loading: true,
-        user: false
+        user: false,
+        updateUser: (user) => { this.setState({ user: user }) }
       };
     }
     
@@ -31,7 +32,7 @@ const withAuthentication = (ComposedComponent) => {
            return <Main loading={true} />;
        } else {
          return (
-           <UserContext.Provider value={this.state.user}>
+           <UserContext.Provider value={{ user: this.state.user, updateUser: this.state.updateUser }}>
              <ComposedComponent {...this.props} />
            </UserContext.Provider>
          );

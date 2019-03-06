@@ -1,5 +1,11 @@
 import React from 'react';
 
+// context for user state
+import { UserContext } from '../../config/context';
+
+// api calls
+import { userRegister } from '../../api/user';
+
 // validate
 import { checkEmail, checkPassword, checkMatch, checkNoMatch } from '../../utils/validate';
 
@@ -31,7 +37,15 @@ class RegisterForm extends React.Component {
     this.setState({
         errors: ERRORS
     });
-    return ERRORS;
+    // if no errors then handle the form
+    if (!ERRORS.email && !ERRORS.password && !ERRORS.confirm) { // and no errors
+      this.setState({loading: true});
+      userRegister.then((result) => {
+        this.setState({user: result, loading: false});
+      }).catch(() => {
+        this.setState({loading: false});
+      });
+    }
   }
 
   render() {
