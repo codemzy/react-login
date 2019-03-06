@@ -10,10 +10,10 @@ const withAuthorisation = (ComposedComponent, authRequired, roleRequired) => {
   function Authorisation(props) {
     return (
       <UserContext.Consumer>
-        {function(user) {
-          if (authRequired && !user) { // must be logged in to view
+        {function(context) {
+          if (authRequired && !context.user) { // must be logged in to view
             return <Redirect to={appPath + "/login"} />;
-          } else if (!authRequired && user) { // must be logged out to view
+          } else if (!authRequired && context.user) { // must be logged out to view
             return <Redirect to={appPath + "/"} />;
           } else { // authorisation granted
             return <ComposedComponent {...props} />;

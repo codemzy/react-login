@@ -4,7 +4,12 @@ import validator from 'validator';
 // some basic front end validation 
   // (proper validation needs to take place on backend)
 
-// check email
+// is a required input
+export const isRequired = function(text) {
+  return validator.isEmpty(text) ? "This information is required" : false;
+}
+
+// checks exists and is valid email
 export const checkEmail = function(email) {
   if (!email || !validator.isEmail(email)) {
       return "You need to enter a valid email address";
@@ -13,7 +18,7 @@ export const checkEmail = function(email) {
   }
 };
 
-// check password
+// checks exists and valid length password
 export const checkPassword = function(password) {
   if (!password || password.length < 8) {
       return "Enter a password of at least 8 characters";
@@ -22,7 +27,7 @@ export const checkPassword = function(password) {
   }
 };
 
-// check name
+// checks exists and is valid name
 export const checkName = function(name) {
   if (!name || name.length < 3 ) {
       return "Name is too short";
@@ -35,7 +40,7 @@ export const checkName = function(name) {
   }
 };
 
-// check match
+// checks a match
 export const checkMatch = function(text, match, error) {
   if (!text || !match || text !== match) {
       return error;
@@ -44,7 +49,7 @@ export const checkMatch = function(text, match, error) {
   }
 };
 
-// check not a match
+// checks not a match
 export const checkNoMatch = function(text, noMatch, error) {
   if (text === noMatch) {
       return error;

@@ -12,6 +12,7 @@ import Forgot from '../components/login/Forgot';
 import Register from '../components/login/Register';
 import Dashboard from '../components/account/Dashboard';
 import Account from '../components/account/Account';
+import Logout from '../components/account/Logout';
 import Page from '../components/feature/Page';
 
 
@@ -22,9 +23,10 @@ const routes = (
       <Route exact path={appPath + "/"} component={withAuthorisation(Dashboard, true)} />
       <Route exact path={appPath + "/account"} component={withAuthorisation(Account, true)} />
       <Route path="/page/:num" render={({ props, match }) => withAuthorisation(Page, true)({...props, title: "Page " + match.params.num})}/>
+      <Route path={appPath + "/logout"} component={withAuthorisation(Logout, true)} />
       <Route exact path={appPath + "/login"} component={withAuthorisation(Login, false)} />
       <Route path={appPath + "/login/forgotten"} component={withAuthorisation(Forgot, false)} />
-      <Route path={appPath + "/register"} component={Register} />
+      <Route path={appPath + "/register"} component={withAuthorisation(Register, false)} />
     </div>
   </Router>
 );

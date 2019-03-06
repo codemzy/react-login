@@ -1,5 +1,11 @@
 import React from 'react';
 
+// context for user state
+import { UserContext } from '../../config/context';
+
+// api calls
+import { userRegister } from '../../api/user';
+
 // validate
 import { checkEmail, checkPassword, checkMatch, checkNoMatch } from '../../utils/validate';
 
@@ -22,16 +28,26 @@ class RegisterForm extends React.Component {
 
   _handleSubmit(event) {
     event.preventDefault();
-    // validate data
-    const ERRORS = { ...this.state.errors,
-                    email: checkEmail(this.state.email),
-                    password: checkPassword(this.state.password) || checkNoMatch(this.state.password, this.state.email, "Your password can't be your email address"),
-                    confirm: checkMatch(this.state.confirm, this.state.password, "Your password confirmation does not match")
-                   };
-    this.setState({
-        errors: ERRORS
-    });
-    return ERRORS;
+    if (!this.state.loading) { // only if not already waiting for a response
+      // validate data
+      const ERRORS = { ...this.state.errors,
+                      email: checkEmail(this.state.email),
+                      password: checkPassword(this.state.password) || checkNoMatch(this.state.password, this.state.email, "Your password can't be your email address"),
+                      confirm: checkMatch(this.state.confirm, this.state.password, "Your password confirmation does not match")
+                     };
+      this.setState({
+          errors: ERRORS
+      });
+      // if no errors then handle the form
+      if (!ERRORS.email && !ERRORS.password && !ERRORS.confirm) {
+        this.setState({loading: true});
+        userRegister(this.state.email, this.state.password).then((result) => {
+          this.context.updateUser(result);
+        }).catch(() => {
+          this.setState({loading: false});
+        });
+      }
+    }
   }
 
   render() {
@@ -53,10 +69,13 @@ class RegisterForm extends React.Component {
           <input type="password" name="confirm" className={"form-control" + (this.state.errors.confirm ? " is-invalid" : "")} value={this.state.confirm} onChange={this._handleChange.bind(this)} />
           { this.state.errors.confirm ? <small className="invalid-feedback">{this.state.errors.confirm}</small> : false }
         </div>
-        <button type="submit" className="btn btn-primary btn-block">Create Account</button>
+        { this.state.loading ? <button type="button" className="btn btn-primary btn-block" disabled><span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Creating Account</button> :
+        <button type="submit" className="btn btn-primary btn-block">Create Account</button> }
       </form>
     );
   }
 }
+
+RegisterForm.contextType = UserContext;
 
 export default RegisterForm;
