@@ -48,7 +48,8 @@ class ForgotForm extends React.Component {
           <input type="email" name="email" className={"form-control" + (this.state.errors.email ? " is-invalid" : "")} placeholder="you@youremail.com" value={this.state.email} onChange={this._handleChange.bind(this)} />
           { this.state.errors.email ? <small className="invalid-feedback">{this.state.errors.email}</small> : false }
         </div>
-        <button type="submit" className="btn btn-primary btn-block">Get Reset Email</button>
+        { this.state.loading ? <button type="button" className="btn btn-primary btn-block" disabled><span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Requesting</button> :
+        <button type="submit" className="btn btn-primary btn-block">Get Reset Email</button> }
       </form>
     );
   }
