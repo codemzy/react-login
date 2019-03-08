@@ -1,7 +1,7 @@
 {
   "name": "react-login",
-  "version": "0.0.1",
-  "description": "A simple ReactJs app with log in.",
+  "version": "1.0.0",
+  "description": "A ReactJS app with register, log in, log out and account components and routes. A starter for front-end authentication.",
   "scripts": {
     "start": "parcel src/app/index.html --out-dir dist/app",
     "build": "parcel build src/app/index.html --out-dir dist/app"
@@ -17,7 +17,9 @@
     "node": "8.x"
   },
   "repository": {
-    "url": "https://glitch.com/edit/#!/hello-express"
+    "type": "git",
+    "url": "https://github.com/codemzy/react-login.git"
   },
+  "author": "codemzy",
   "license": "MIT"
 }
