@@ -1,6 +1,6 @@
 dependencies:
   parcel-bundler: 1.11.0
-  react: 16.8.3
+  react: 16.8.4
   react-dom: 16.8.1
   react-router-dom: 4.3.1
   validator: 10.11.0
@@ -4200,7 +4200,7 @@ packages:
     dependencies:
       loose-envify: 1.4.0
       object-assign: 4.1.1
-      react-is: 16.8.1
+      react-is: 16.8.4
     dev: false
     resolution:
       integrity: sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -4309,6 +4309,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-ioMCzVDWvCvKD8eeT+iukyWrBGrA3DiFYkXfBsVYIRdaREZuBjENG+KjrikavCLasozqRWTwFUagU/O4vPpRMA==
+  /react-is/16.8.4:
+    dev: false
+    resolution:
+      integrity: sha512-PVadd+WaUDOAciICm/J1waJaSvgq+4rHE/K70j0PFqKhkTBsPv/82UGQJNXAngz1fOQLLxI6z1sEDmJDQhCTAA==
   /react-router-dom/4.3.1:
     dependencies:
       history: 4.7.2
@@ -4336,17 +4340,17 @@ packages:
       react: '>=15'
     resolution:
       integrity: sha512-yrvL8AogDh2X42Dt9iknk4wF4V8bWREPirFfS9gLU1huk6qK41sg7Z/1S81jjTrGHxa3B8R3J6xIkDAA6CVarg==
-  /react/16.8.3:
+  /react/16.8.4:
     dependencies:
       loose-envify: 1.4.0
       object-assign: 4.1.1
       prop-types: 15.7.2
-      scheduler: 0.13.3
+      scheduler: 0.13.4
     dev: false
     engines:
       node: '>=0.10.0'
     resolution:
-      integrity: sha512-3UoSIsEq8yTJuSu0luO1QQWYbgGEILm+eJl2QN/VLDi7hL+EN18M3q3oVZwmVzzBJ3DkM7RMdRwBmZZ+b4IzSA==
+      integrity: sha512-0GQ6gFXfUH7aZcjGVymlPOASTuSjlQL4ZtVC5YKH+3JL6bBLCVO21DknzmaPlI90LN253ojj02nsapy+j7wIjg==
   /readable-stream/2.3.6:
     dependencies:
       core-util-is: 1.0.2
@@ -4573,13 +4577,13 @@ packages:
     dev: false
     resolution:
       integrity: sha512-VJKOkiKIN2/6NOoexuypwSrybx13MY7NSy9RNt8wPvZDMRT1CW6qlpF5jXRToXNHz3uWzbm2elNpZfXfGPqP9A==
-  /scheduler/0.13.3:
+  /scheduler/0.13.4:
     dependencies:
       loose-envify: 1.4.0
       object-assign: 4.1.1
     dev: false
     resolution:
-      integrity: sha512-UxN5QRYWtpR1egNWzJcVLk8jlegxAugswQc984lD3kU7NuobsO37/sRfbpTdBjtnD5TBNFA2Q2oLV5+UmPSmEQ==
+      integrity: sha512-cvSOlRPxOHs5dAhP9yiS/6IDmVAVxmk33f0CtTJRkmUWcb1Us+t7b1wqdzoC0REw2muC9V5f1L/w5R5uKGaepA==
   /semver/5.6.0:
     dev: false
     hasBin: true
@@ -5329,7 +5333,7 @@ shrinkwrapMinorVersion: 9
 shrinkwrapVersion: 3
 specifiers:
   parcel-bundler: ^1.11.0
-  react: ^16.8.2
+  react: ^16.8.3
   react-dom: ^16.6.3
   react-router-dom: ^4.3.1
   validator: ^10.10.0
