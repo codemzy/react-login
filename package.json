@@ -4,7 +4,8 @@
   "description": "A ReactJS app with register, log in, log out and account components and routes. A starter for front-end authentication.",
   "scripts": {
     "start": "parcel src/app/index.html --out-dir dist/app",
-    "build": "parcel build src/app/index.html --out-dir dist/app"
+    "build": "parcel build src/app/index.html --out-dir dist/app",
+    "gh-deploy": "cd dist/app && git add --all && git commit -m 'New build' && git push origin gh-pages && cd ../.."
   },
   "dependencies": {
     "parcel-bundler": "^1.11.0",
