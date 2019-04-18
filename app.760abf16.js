@@ -300,4 +300,4 @@ var e=require("isarray");module.exports=d,module.exports.parse=t,module.exports.
 },{"react":"ccIB","react-router-dom":"/Cc2","./paths":"kVqB","./hocAuthorisation":"JSuZ","../components/login/Login":"beqQ","../components/login/Forgot":"rTGJ","../components/login/Register":"fU+g","../components/feature/Dashboard":"3JCc","../components/account/Account":"aUcv","../components/account/Logout":"oZPs","../components/feature/Page":"pO0K"}],"A2T1":[function(require,module,exports) {
 "use strict";var e=n(require("react")),r=n(require("react-dom")),t=n(require("./router")),u=require("./context/User"),l=require("./context/Alert");function n(e){return e&&e.__esModule?e:{default:e}}var a=function(){return e.default.createElement(u.UserProvider,null,e.default.createElement(l.AlertProvider,null,t.default))};r.default.render(e.default.createElement(a,null),document.getElementById("app"));
 },{"react":"ccIB","react-dom":"x9tB","./router":"mJnk","./context/User":"t1E+","./context/Alert":"8Hh6"}]},{},["A2T1"], null)
-//# sourceMappingURL=/app.760abf16.js.map
+//# sourceMappingURL=react-login/app.760abf16.js.map
