@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
-import { appPath } from '../../config/settings';
+import * as paths from '../../router/paths';
 
 // hoc
 import withHead from '../hocHead';
@@ -30,12 +30,12 @@ function Login(props) {
   }
 
   return (
-    <Main title="Log In" footer={<small><p className="text-white">Don't have an account? <Link to={appPath + "/register"} className="text-white"><u>Register</u></Link></p></small>}>
+    <Main title="Log In" footer={<small><p className="text-white">Don't have an account? <Link to={paths.register} className="text-white"><u>Register</u></Link></p></small>}>
       <h6 className="text-muted">Welcome back! Please enter your email address and password.</h6>
       <Form
         loading={loading}
         handleSubmit={handleSubmit}
-        email={true} password={{ help: <Link to={appPath + "/login/forgotten"}>Forgot your password?</Link> }}
+        email={true} password={{ help: <Link to={paths.forgotPw}>Forgot your password?</Link> }}
         button={{submit: "Log In", submitted: "Logging In"}} />
     </Main>
   );
