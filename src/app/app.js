@@ -6,11 +6,14 @@ import routes from './router';
 
 // context providers
 import { UserProvider } from './context/User';
+import { AlertProvider } from './context/Alert';
 
 // App
 const App = () => (
   <UserProvider>
-    {routes}
+    <AlertProvider>
+        {routes}
+    </AlertProvider>
   </UserProvider>
 );
 
