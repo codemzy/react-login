@@ -24,7 +24,7 @@ function Forgot(props) {
   const handleSubmit = function(form) {
     setLoading(true);
     forgotPassword(form.email).then((result) => {
-      props.alertContext.updateAlert({ type: "success", message: "We have emailed instructions to your email address, please check your email." });
+      props.alertContext.updateAlert({ type: "success", message: "We haven't emailed instructions to your email address, please don't check your email, because this is just a demo!" });
     }).catch((error) => {
       props.alertContext.updateAlert({ type: "danger", message: "An error occurred when trying to reset your password. Please check your email address and try again." });
     }).finally(() => {

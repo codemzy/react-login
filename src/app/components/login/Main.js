@@ -2,11 +2,12 @@ import React from 'react';
 
 // components
 import Loading from '../Loading';
+import Alert from '../Alert';
 
 function Main(props) {
   return (
     <div className="min-vh-100 bg-dark d-flex flex-column justify-content-center align-items-center">
-      { props.loading ? 
+      { props.loading ?
         <Loading />
         :
         <div className="container">
@@ -15,7 +16,8 @@ function Main(props) {
               <h1 className="text-white">{props.title}</h1>
               <div className="card shadow my-4">
                 <div className="card-body p-5">
-                  {props.children}
+                    <Alert />
+                    {props.children}
                 </div>
               </div>
               {props.footer}

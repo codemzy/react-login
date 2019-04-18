@@ -1,9 +1,6 @@
 // fake user requests - wire this up to a real api
   // for now this just fakes api requests with a timeout
 
-// fake user info
-let dummyUser = { firstName: "Fake", lastName: "User", email: "fake.user@email.com" };
-
 // fake check if use is authenticated (logged in)
 export const checkAuth = new Promise(function(resolve, reject) {
   setTimeout(function() {
@@ -15,7 +12,7 @@ export const checkAuth = new Promise(function(resolve, reject) {
 export const userRegister = function(email, password) {
   return new Promise(function(resolve, reject) {
     setTimeout(function() {
-      resolve({...dummyUser, email: email }); // return a user for successful register
+      resolve({ email: email }); // return a user for successful register
     }, 2000);
   });
 };
@@ -24,7 +21,7 @@ export const userRegister = function(email, password) {
 export const userLogin = function(email, password) {
   return new Promise(function(resolve, reject) {
     setTimeout(function() {
-      resolve({...dummyUser, email: email }); // return a user for successful log in
+      resolve({ email: email }); // return a user for successful log in
     }, 2000);
   });
 };
@@ -38,7 +35,7 @@ export const userLogout = function() {
   });
 };
 
-// fake forgot password 
+// fake forgot password
 export const forgotPassword = function(email) {
   return new Promise(function(resolve, reject) {
     setTimeout(function() {
@@ -46,3 +43,14 @@ export const forgotPassword = function(email) {
     }, 2000);
   });
 };
+
+// ----------- ACCOUNT ----------- //
+
+// fake change email
+export const changeEmail = function(password, newEmail) {
+  return new Promise(function(resolve, reject) {
+    setTimeout(function() {
+      resolve({ email: newEmail });
+    }, 1000);
+  });
+}

@@ -45,12 +45,13 @@ class Email extends React.Component {
       if (!ERRORS.email && !ERRORS.password) {
         this.setState({ loading: true });
         changeEmail(this.state.password, this.state.email).then((result) => {
-          this._handleReset();
-          this.props.alertContext.updateAlert({ type: "success", message: "Your email address has been updated." });
+            this.props.userContext.updateUser(result);
+            this._handleReset();
+            this.props.alertContext.updateAlert({ type: "success", message: "Your email address has been updated." });
         }).catch((error) => {
-          this.props.alertContext.updateAlert({ type: "danger", message: error.message });
+            this.props.alertContext.updateAlert({ type: "danger", message: "There was a problem updating your email address, please try again." });
         }).finally(() => {
-          this.setState({ loading: false });
+            this.setState({ loading: false });
         });
       }
     }

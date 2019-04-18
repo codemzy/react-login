@@ -11,7 +11,7 @@ import withAuthorisation from './hocAuthorisation';
 import Login from '../components/login/Login';
 import Forgot from '../components/login/Forgot';
 import Register from '../components/login/Register';
-import Dashboard from '../components/account/Dashboard';
+import Dashboard from '../components/feature/Dashboard';
 import Account from '../components/account/Account';
 import Logout from '../components/account/Logout';
 import Page from '../components/feature/Page';

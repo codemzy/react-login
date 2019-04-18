@@ -9,10 +9,8 @@ import Main from '../Main';
 function Page(props) {
   return (
     <Main>
-      <div className="container">
         <h1>{props.title}</h1>
         <p className="lead">This is a dummy page for the app.</p>
-      </div>
     </Main>
   );
 }
