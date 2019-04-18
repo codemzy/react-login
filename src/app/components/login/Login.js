@@ -5,8 +5,8 @@ import { appPath } from '../../config/settings';
 // hoc
 import withHead from '../hocHead';
 
-// context for user state
-import { UserContext } from '../../config/context';
+// context
+import { getContext } from '../../context';
 
 // api calls
 import { userLogin } from '../../api/user';
@@ -25,10 +25,7 @@ function Login(props) {
   const handleSubmit = function(form) {
     setLoading(true);
     userLogin(form.email, form.password).then((result) => {
-        this.context.updateUser(result);
-    }).catch((error) => {
-      setLoading(false);
-      props.alertContext.updateAlert({ type: "danger", message: error.message });
+        props.userContext.updateUser(result);
     });
   }
 
@@ -44,6 +41,6 @@ function Login(props) {
   );
 }
 
-Login.contextType = UserContext;
-
-export default withHead(Login, "Log In");
+export default getContext({
+  user: true
+})(withHead(Login, "Log In"));
