@@ -5,8 +5,7 @@
   "scripts": {
     "start": "parcel src/app/index.html --out-dir dist/app",
     "build": "parcel build src/app/index.html --out-dir dist/app",
-    "gh-build": "parcel build src/app/index.html --out-dir dist/app --public-url ./",
-    "gh-deploy": "cd dist/app && git add --all && git commit -m 'New build' && git push origin gh-pages && cd ../.."
+    "gh-build": "parcel build src/app/index.html --out-dir dist/app --public-url ./"
   },
   "dependencies": {
     "parcel-bundler": "^1.12.3",

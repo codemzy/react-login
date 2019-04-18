@@ -19,7 +19,7 @@ import Page from '../components/feature/Page';
 
 //router
 const routes = (
-  <Router basename={process.env.PUBLIC_URL}>
+  <Router>
     <div>
       <Route exact path={paths.home} component={withAuthorisation(Dashboard, true)} />
       <Route exact path={paths.account} component={withAuthorisation(Account, true)} />
