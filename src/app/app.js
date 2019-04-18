@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import routes from './config/router'; // app routes
+// app routes
+import routes from './router';
 
 // context providers
 import { UserProvider } from './context/User';
