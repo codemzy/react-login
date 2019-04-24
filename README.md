@@ -3,7 +3,7 @@ react-login
 
 This is a starter react app with a log in, register and log out components pre-built. You can [demo it here](https://codemzy.github.io/react-login/).
 
-On the demo, enter any email and password to log in or register. Your details won't be saved. It's just the front end, so all the api calls in `src/app/api/user.js` are dummy calls, wire it up to a real api for your projects. I usually use [axios](https://www.npmjs.com/package/axios) for api requests, but anything can be used.
+On the demo, enter any email and password to log in or register. Your details won't be saved. It's just the front end, so all the api calls in `src/app/api/user.js` are dummy calls, wire it up to a real api for your projects. I usually use [axios](https://www.npmjs.com/package/axios) for api requests, but anything can be used. If you are thinking about using firebase, check out my other project [react-firebase-auth](https://github.com/codemzy/react-firebase-auth).
 
 I've used [bootstrap v4](https://getbootstrap.com/) but this can be replaced with another framework or custom css.
 
