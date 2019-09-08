@@ -1,37 +1,27 @@
-
 import React from 'react';
-
 // context
-import { getContext } from '../../context';
-
+import UserContext from '../../context/User';
 // api calls
 import { userLogout } from '../../api/user';
-
 // hoc
 import withHead from '../hocHead';
-
 //components
 import Main from '../login/Main';
 
-class Logout extends React.Component {
-  constructor() {
-    super();
-  }
+function Logout(props) {
+    // context
+    const userContext = React.useContext(UserContext);
 
-  componentDidMount() {
-    userLogout().finally(() => {
-      // we can just remove the user from context
-      this.props.userContext.updateUser(false); // we can just remove the user from context to get redirected to log in
-      // or we could redirect somewhere outside the app
-      // window.location.href = window.location.protocol + "//" + window.location.host + "/";
-    });
-  }
+    // log out user on mount
+    React.useEffect(() => {
+        userLogout().finally(() => {
+            userContext.updateUser(false); // we can just remove the user from context
+            // window.location.href = window.location.protocol + "//" + window.location.host + "/"; // or we could redirect somewhere outside the app
+        });
+    }, []); // run only once
 
-  render() {
+    // loading while sending logout request
     return <Main loading={true} />;
-  }
-}
+};
 
-export default getContext({
-  user: true
-})(withHead(Logout, "Logging out..."));
+export default withHead(Logout, "Logging out...");

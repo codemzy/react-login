@@ -48,3 +48,6 @@ export const UserProvider = class UserProvider extends React.Component {
 
 // user context consumer
 export const UserConsumer = UserContext.Consumer;
+
+// user context
+export default UserContext;
